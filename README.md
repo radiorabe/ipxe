@@ -1,6 +1,6 @@
 # ipxe
 
-Contains the main iPXE M=menu for the new RaBe CentOS-7 stack.
+Contains the main iPXE menu for the new RaBe CentOS-7 stack.
 
 The menu is generated based on the contents of the [kickstart](https://github.com/radiorabe/kickstart) repository in a hacky fashion.
 
