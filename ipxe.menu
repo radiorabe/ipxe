@@ -1,0 +1,42 @@
+#!ipxe
+# iPXE Menu
+
+goto menu
+
+:shell
+echo Type exit to return to the menu.
+shell
+set menu-timeout 0
+set submenu-timeout 0
+goto menu
+
+:docker
+set kickstart ks=https://raw.githubusercontent.com/radiorabe/kickstart/develop/docker.cfg
+goto centos
+
+:centos
+echo Booting CentOS
+set farch x86_64
+set centos_root http://linuxsoft.cern.ch/centos
+
+set version 7
+set bo repo
+
+initrd ${centos_root}/${version}/os/${farch}/images/pxeboot/initrd.img
+boot ${centos_root}/${version}/os/${farch}/images/pxeboot/vmlinuz ${bo}=${centos_root}/${version}/os/${farch}/ ${kickstart}
+goto done
+
+:exit
+exit
+goto done
+
+:menu
+menu Please choose an action
+item centos Boot CentOS install
+item docker Kickstart docker
+item shell  Enter iPXE shell
+item exit   Exit to BIOS (only works if "boot next device" is supported)
+choose --default exit --timeout 3000 target && goto ${target}
+goto done
+
+:done
