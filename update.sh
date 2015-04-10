@@ -4,12 +4,17 @@ FILES=`curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/r
 echo $FILES
 
 cat tpl/menu.pre.cfg > ipxe.menu
-for FILE in "$FILES"; do
+cat /dev/null > ipxe.items
+for FILE in $FILES; do
     NAME="${FILE%.*}"
-    URL="https://raw.githubusercontent.com/radiorabe/kickstart/develop/${FILE}"
-    cat tpl/item.cfg | sed -e "s/<file>/$FILE/g" -e "s/<name>/$NAME/g" -e "s@<url>@$URL@g" >> ipxe.menu
-    MENU=`printf "$MENU\nitem $NAME Kickstart $NAME"`
+    if [ "$NAME" != "README" ]; then
+        URL="https://raw.githubusercontent.com/radiorabe/kickstart/develop/${FILE}"
+        cat tpl/item.cfg | sed -e "s/<file>/$FILE/g" -e "s/<name>/$NAME/g" -e "s@<url>@$URL@g" >> ipxe.menu
+        MENU=`printf "$MENU\nitem $NAME Kickstart $NAME\n"`
+        echo "item $NAME Kickstart $NAME" >> ipxe.items
+    fi
 done
 cat tpl/item.post.cfg >> ipxe.menu
-echo $MENU >> ipxe.menu
+cat ipxe.items >> ipxe.menu
+rm ipxe.items
 cat tpl/menu.post.cfg >> ipxe.menu
