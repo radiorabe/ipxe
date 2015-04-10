@@ -10,8 +10,17 @@ set menu-timeout 0
 set submenu-timeout 0
 goto menu
 
+# item from docker.cfg
 :docker
 set kickstart ks=https://raw.githubusercontent.com/radiorabe/kickstart/develop/docker.cfg
+goto centos
+# item from ovirt-engine.cfg
+:ovirt-engine
+set kickstart ks=https://raw.githubusercontent.com/radiorabe/kickstart/develop/ovirt-engine.cfg
+goto centos
+# item from ovirt.cfg
+:ovirt
+set kickstart ks=https://raw.githubusercontent.com/radiorabe/kickstart/develop/ovirt.cfg
 goto centos
 
 :centos
@@ -34,6 +43,8 @@ goto done
 menu Please choose an action
 item centos Boot CentOS install
 item docker Kickstart docker
+item ovirt-engine Kickstart ovirt-engine
+item ovirt Kickstart ovirt
 item shell  Enter iPXE shell
 item exit   Exit to BIOS (only works if "boot next device" is supported)
 choose --default exit --timeout 3000 target && goto ${target}
