@@ -1,0 +1,5 @@
+#!ipxe
+
+kernel http://mirror.switch.ch/ftp/mirror/centos/7/os/x86_64/images/pxeboot/vmlinuz initrd=initrd.img console=ttyS0,115200n8 inst.repo=http://mirror.switch.ch/ftp/mirror/centos/7/os/x86_64 inst.text ip=dhcp ipv6.disable
+initrd http://mirror.switch.ch/ftp/mirror/centos/7/os/x86_64/images/pxeboot/initrd.img
+boot
