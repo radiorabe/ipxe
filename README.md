@@ -1,6 +1,6 @@
 # CentOS 7 iPXE HTTP installation via text mode over serial console
 
-The [centos7-serial.ipxe](centos7-serial.ipxe) iPXE boot script can be used to boot and install CentOS 7 over HTTP via a serial console. This is usefull for (and was tested on) [PC Engine's APU borads](http://pcengines.ch/apu.htm) or other systems without a video output but PXE/iPXE support.
+The [centos7-serial.ipxe](centos7-serial.ipxe) iPXE boot script can be used to boot and install CentOS 7 over HTTP via a serial console. This is useful for (and was tested on) [PC Engine's APU boards](http://pcengines.ch/apu.htm) or other systems without a video output but PXE/iPXE support.
 
 Follow the steps below to boot the CentOS 7 installer over HTTP.
 
