@@ -24,4 +24,8 @@ chain http://boot.ipxe.org/ipxe.pxe
 ifconf
 chain https://raw.githubusercontent.com/radiorabe/ipxe/master/centos7-serial.ipxe
 ```
-
+or if you're lazy:
+```
+# [...]
+chain http://bit.ly/1WZH8Nu
+```
