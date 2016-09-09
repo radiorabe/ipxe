@@ -22,10 +22,18 @@ dhcp
 chain http://boot.ipxe.org/ipxe.pxe
 # CTRL-B
 ifconf
+chain http://rabe.hairmare.ch/centos7-serial.ipxe
+
+# If you're iPXE supports HTTPS, you can chainload directly from GitHub
 chain https://raw.githubusercontent.com/radiorabe/ipxe/master/centos7-serial.ipxe
 ```
 or if you're lazy:
 ```
 # [...]
+
+# URL shortener pointing to http://rabe.hairmare.ch/centos7-serial.ipxe
+chain http://bit.ly/2cps3s6
+
+# URL shortener pointing to https://raw.githubusercontent.com/radiorabe/ipxe/master/centos7-serial.ipxe
 chain http://bit.ly/1WZH8Nu
 ```
