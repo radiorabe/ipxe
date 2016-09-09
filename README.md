@@ -24,7 +24,7 @@ chain http://boot.ipxe.org/ipxe.pxe
 ifconf
 chain http://rabe.hairmare.ch/centos7-serial.ipxe
 
-# If you're iPXE supports HTTPS, you can chainload directly from GitHub
+# If your iPXE supports HTTPS, you can chainload directly from GitHub
 chain https://raw.githubusercontent.com/radiorabe/ipxe/master/centos7-serial.ipxe
 ```
 or if you're lazy:
